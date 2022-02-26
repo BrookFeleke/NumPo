@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800&display=swap');
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: rgb(41, 94, 99);
+    display: flex;
+     height: 100vh;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+}
+
+
+.container {
+    box-shadow: 0 0 20px rgba(230, 216, 216, 0.801); 
+    width: 800px;
+    height: 500px;
+    display: flex;
+    background-color: rgb(31, 22, 73);
+}
+.container.active {
+    width: 400px;
+}
+.game {
+    padding: 20px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(31, 22, 73);
+    border-right: white solid;
+}
+
+.game.active {
+    width: 100%;
+    border-right: 0px;
+}
+
+.history {
+    padding: 20px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+.history.active {
+
+    position: fixed;
+    left: -100%;
+    transition: all 1s;
+    display: none;
+}
+.result-c {
+    display: flex;
+}
+
+.input-c {
+    display: flex;
+    margin: 20px 0px;
+
+}
+
+.h-button {
+    width: 30%;
+    margin: 20px 0px;
+    border-radius: 20px;
+}
+
+.cell {
+    color: antiquewhite;
+    text-align: center;
+    display: block;
+    width: 35px;
+    height: 35px;
+    border: rgb(111, 231, 55) solid 1px;
+    background-color: rgb(49, 49, 236);
+    margin: 2px;
+}
+
+.result-cell {
+    background-color: rgb(78, 78, 236);
+}
+
+.keyboard {
+    width: 80%;
+    height: 40%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+}
+
+.key {
+    background-color: rgb(92, 226, 39);
+    font-size: larger;
+    color: black;
+}
