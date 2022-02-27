@@ -1,36 +1,43 @@
 const historyButton = document.querySelector(".h-button");
-const history = document.querySelector(".history");
+const historyy = document.querySelector(".history");
 const container = document.querySelector(".container");
 const game = document.querySelector(".game");
 const inputGrid = document.querySelector(".input-c");
 const latestResult = document.querySelector(".result-c");
 const back = document.querySelector(".back-button")
-var width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+
 
 console.log("width");
-console.log(width);
+// console.log(width);
 
-function modileResp() {
-  if (width < 640) {
-  }
+function getWidth() {
+    return window.innerWidth > 0 ? window.innerWidth : screen.width;
 }
 
+// function modileResp() {
+//   if (width < 640) {
+//   }
+// }
+
 back.addEventListener("click", () => {
- 
+    var width = getWidth();
+    if (width < 640) {
         container.classList.toggle("active");
-        history.classList.toggle("mobile");
+        historyy.classList.toggle("mobile");
         game.classList.toggle("mobile");
+    }
       
 })
 
 historyButton.addEventListener("click", () => {
+    var width = getWidth();
   if (width > 640) {
     container.classList.toggle("active");
-    history.classList.toggle("active");
+    historyy.classList.toggle("active");
     game.classList.toggle("active");
   } else {
     container.classList.toggle("active");
-    history.classList.toggle("mobile");
+    historyy.classList.toggle("mobile");
     game.classList.toggle("mobile");
   }
 });
@@ -133,15 +140,6 @@ function submitGuess() {
         if (index === randomNumber.indexOf(parseInt(digit))) p++;
       }
     });
-    // for( var i = 0; i < 4; i++){
-    //     for( var j = 0; j < 4; j++){
-    //         if(userGuess[i] = randomNumber[j]){
-    //             n++
-    //             if(i === j) p++
-    //         }
-    //     }
-    // }
-
     const latestR = latestResult.querySelectorAll(".cell");
     for (var i = 0; i < 4; i++) {
       latestR[i].innerHTML = userGuess[i];
@@ -152,6 +150,10 @@ function submitGuess() {
     createElement(userGuess, n, p);
     for (var i = 0; i < 4; i++) {
       deleteKey();
+    }
+    if(n === 4 && p === 4) {
+        stopInteraction();
+        alert("u won")
     }
     console.log(activeTiles);
   }
@@ -178,6 +180,6 @@ function createElement(userGuess, n, p) {
   createdPCell.classList.add("result-cell");
   createdPCell.innerHTML = p;
   createdBlock.appendChild(createdPCell);
-  history.appendChild(createdBlock);
+  historyy.appendChild(createdBlock);
 }
 startInteraction();

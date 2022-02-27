@@ -11,7 +11,7 @@
     --button-color: #488D8D ;
     --game-color: #0A3F3F;
     --history-color:#1F5656 ;
-    --cell-color: #FC8B8B;
+    --cell-color: #bb7373;
     --result-color: #903333; 
 }
 
@@ -40,8 +40,11 @@ button {
     border: #001919 1px solid;
 }
 .container.active {
-    width: 400px;
+    width: 325px;
 }
+/* .container.active {
+    width: 400px;
+} */
 .game {
     padding: 10px;
     width: 50%;
@@ -63,7 +66,7 @@ button {
     position: fixed;
     left: -100%;
     transition: all 1s;
-    display: none;
+    /* display: none; */
 }
 
 .history {
@@ -83,7 +86,6 @@ button {
     display: none;
 }
 .history.mobile {
-  
     display: flex;
     width: 100%;
 }
@@ -106,7 +108,7 @@ button {
 }
 .back-button {
     height: 10%;
-    /* display: none; */
+    display: none;
     width: 30%;
     margin: 20px 0px;
     border-radius: 20px;
@@ -162,8 +164,18 @@ button {
 
     }
 }
-/* @media (max-width: 640px) {
+@media (max-width: 640px) {
+.history {
+    display: none;
+}
+.game {
+    width: 100%;
+}
+.container {
+    width: 325px;
+}
+
 .back-button {
     display: block;
 }
-} */
+}
