@@ -5,6 +5,8 @@ const game = document.querySelector(".game");
 const inputGrid = document.querySelector(".input-c");
 const latestResult = document.querySelector(".result-c");
 const back = document.querySelector(".back-button")
+const historyInner = document.querySelector(".history-inner");
+
 
 
 console.log("width");
@@ -25,7 +27,11 @@ back.addEventListener("click", () => {
         container.classList.toggle("active");
         historyy.classList.toggle("mobile");
         game.classList.toggle("mobile");
-    }
+    } else {
+        container.classList.toggle("active");
+        historyy.classList.toggle("active");
+        game.classList.toggle("active");
+      }
       
 })
 
@@ -127,7 +133,7 @@ function submitGuess() {
   const activeTiles = getActiveTiles();
   if (activeTiles.length < 3) {
     console.log(activeTiles.length);
-    alert("hello");
+    // alert("hello");
     return;
   } else {
     for (var i = 0; i < 4; i++) {
@@ -180,6 +186,6 @@ function createElement(userGuess, n, p) {
   createdPCell.classList.add("result-cell");
   createdPCell.innerHTML = p;
   createdBlock.appendChild(createdPCell);
-  historyy.appendChild(createdBlock);
+  historyInner.appendChild(createdBlock);
 }
 startInteraction();
