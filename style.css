@@ -5,9 +5,19 @@
     font-family: 'Outfit', sans-serif;
 }
 
+
+:root {
+    --backgroun-color : #001919;
+    --button-color: #488D8D ;
+    --game-color: #0A3F3F;
+    --history-color:#1F5656 ;
+    --cell-color: #FC8B8B;
+    --result-color: #903333; 
+}
+
 body {
     box-sizing: border-box;
-    background-color: rgb(41, 94, 99);
+    background-color: var(--backgroun-color);
     display: flex;
      height: 100vh;
      justify-content: center;
@@ -15,31 +25,45 @@ body {
      margin: 0;
 }
 
+button {
+    border: none;
+}
+
 
 .container {
-    box-shadow: 0 0 20px rgba(230, 216, 216, 0.801); 
-    width: 800px;
-    height: 500px;
+    box-shadow: 0px 0px 30px rgba(247, 203, 203, 0.31); 
+    width: 650px;
+    height: 450px;
     display: flex;
-    background-color: rgb(31, 22, 73);
+    background-color: rgb(47, 46, 53);
+    border-radius: 10px;
+    border: #001919 1px solid;
 }
 .container.active {
     width: 400px;
 }
 .game {
-    padding: 20px;
+    padding: 10px;
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(31, 22, 73);
-    border-right: white solid;
+    background-color: var(--game-color);
+    box-shadow: 2px 0px 5px;
+    z-index: 2;
+    /* border-right: white solid; */
 }
 
 .game.active {
     width: 100%;
     border-right: 0px;
+}
+.game.mobile {
+    position: fixed;
+    left: -100%;
+    transition: all 1s;
+    display: none;
 }
 
 .history {
@@ -47,17 +71,23 @@ body {
     width: 50%;
     height: 100%;
     display: flex;
+    background-color: var(--history-color);
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
 }
 .history.active {
-
     position: fixed;
     left: -100%;
     transition: all 1s;
     display: none;
 }
+.history.mobile {
+  
+    display: flex;
+    width: 100%;
+}
+
 .result-c {
     display: flex;
 }
@@ -69,36 +99,71 @@ body {
 }
 
 .h-button {
+    height: 10%;
+    width: 30%;
+    margin: 20px 0px;
+    border-radius: 20px;
+}
+.back-button {
+    height: 10%;
+    /* display: none; */
     width: 30%;
     margin: 20px 0px;
     border-radius: 20px;
 }
 
 .cell {
-    color: antiquewhite;
-    text-align: center;
-    display: block;
+    color: antiquewhite; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 35px;
     height: 35px;
-    border: rgb(111, 231, 55) solid 1px;
-    background-color: rgb(49, 49, 236);
+    border: #cad1c7 solid 1px;
+    background-color: var(--cell-color);
     margin: 2px;
 }
 
 .result-cell {
-    background-color: rgb(78, 78, 236);
+    background-color: var(--result-color);
 }
 
 .keyboard {
-    width: 80%;
-    height: 40%;
+    width: 90%;
+    height: 50%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 2px;
+    gap: 5px;
 }
 
 .key {
-    background-color: rgb(92, 226, 39);
+    background-color: var(--button-color);
     font-size: larger;
     color: black;
+    box-shadow: 0px 0px 3px 5px rgba(0, 0, 0, 0.295);
+    transition: 2s ease-in-out;
 }
+
+.key:focus {
+    animation: sink-in 1s;
+}
+@keyframes sink-in {
+    0% {
+    box-shadow: inset 0px 0px 1px 5px rgba(0, 0, 0, 0.295); 
+    }
+    50% {
+    box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.295); 
+    }
+    75% {
+        
+    }
+    100% {
+    box-shadow:  0px 0px 3px 5px rgba(0, 0, 0, 0.295);
+
+    }
+}
+/* @media (max-width: 640px) {
+.back-button {
+    display: block;
+}
+} */
